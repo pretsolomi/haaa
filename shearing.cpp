@@ -1,6 +1,7 @@
 //9e implement code to make line shearing  in x and y
 #include <graphics.h>
 #include <iostream>
+#include<conio.h>
 using namespace std;
 
 int main()
@@ -27,22 +28,20 @@ int main()
     int new_x1 = x1 + shx * y1;
     int new_x2 = x2 + shx * y2;
 
+
     line(new_x1, y1, new_x2, y2);
 
-    getch();
-
-    // ----------- SHEAR ALONG Y AXIS -----------
     cout << "Enter shear factor along Y-axis: ";
     cin >> shy;
 
-    cleardevice();
-
+	char msg1[] = "WHITE: Before Shearing";
+	char msg2[] = "RED: After Shearing along X-axis";
     setcolor(WHITE);
-    outtextxy(10, 10, "WHITE: Before Shearing");
+    outtextxy(10, 10, msg1);
     line(x1, y1, x2, y2);
 
     setcolor(RED);
-    outtextxy(10, 30, "RED: After Shearing along Y-axis");
+    outtextxy(10, 30, msg2);
 
     // Apply shear (Y-axis)
     int new_y1 = y1 + shy * x1;
