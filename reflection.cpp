@@ -9,8 +9,7 @@ int main() {
 
     int x1, y1, x2, y2;
 
-    // Create window (width, height, title)
-    initwindow(800, 600, "Line Reflection");
+
 
     cout << "Enter x coordinate of line 1: ";
     cin >> x1;
@@ -24,8 +23,7 @@ int main() {
     cout << "Enter y coordinate of line 2: ";
     cin >> y2;
 
-    cleardevice();
-
+    initwindow(800, 600, "Line Reflection");
     // Draw axes (center of screen)
     line(getmaxx()/2, 0, getmaxx()/2, getmaxy());
     line(0, getmaxy()/2, getmaxx(), getmaxy()/2);
@@ -39,7 +37,7 @@ int main() {
     line(x1, getmaxy() - y1, x2, getmaxy() - y2);
 
     // Reflection in Y-axis
-    setcolor(WHITE);
+    setcolor(GREEN);
     line(getmaxx() - x1, y1, getmaxx() - x2, y2);
 
     getch();
