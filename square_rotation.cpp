@@ -7,8 +7,8 @@ using namespace std;
 
 void rotateSquare(int cx, int cy, int w, int h, int angle)
 {
-    double theta = angle * M_PI / 180.0;
-
+    double theta = angle * M_PI / 180.0; //radian=degree x pi/180
+    
     int dx = w / 2;
     int dy = h / 2;
 
