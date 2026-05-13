@@ -8,9 +8,13 @@ using namespace std;
 
 int main()
 {
+    /* 
     int gd = DETECT, gm;
     initgraph(&gd, &gm, (char*)"");
-  
+    */
+
+    initwindow(800, 600, "Scan Line Fill Algorithm");
+
     int poly[] = {
         200,150,
         300,100,
@@ -27,6 +31,7 @@ int main()
     int ymin = poly[1];
     int ymax = poly[1];
 
+    // Find ymin and ymax
     for(int i = 1; i < n * 2; i += 2)
     {
         if(poly[i] < ymin)
@@ -36,12 +41,13 @@ int main()
             ymax = poly[i];
     }
 
+    // Scan line filling
     for(int y = ymin; y <= ymax; y++)
     {
         int interx[20];
         int count = 0;
 
-        // Find intersections
+        // Find intersection points
         for(int i = 0; i < n; i++)
         {
             int x1 = poly[2 * i];
@@ -50,9 +56,11 @@ int main()
             int x2 = poly[2 * ((i + 1) % n)];
             int y2 = poly[2 * ((i + 1) % n) + 1];
 
+            // Ignore horizontal edges
             if(y1 == y2)
                 continue;
 
+            // Check intersection
             if(y >= min(y1, y2) && y < max(y1, y2))
             {
                 int x = x1 + (float)(y - y1) * (x2 - x1) / (y2 - y1);
@@ -76,14 +84,14 @@ int main()
             }
         }
 
-        // Fill polygon
+        // Fill between pairs
         for(int i = 0; i < count; i += 2)
         {
             setcolor(YELLOW);
 
             line(interx[i], y, interx[i + 1], y);
 
-            delay(20); 
+            delay(20);
         }
     }
 
